@@ -1,0 +1,38 @@
+<html>
+<body>
+<center><h1>STRING AND MATH FUNCTIONS</h1></center>
+<h2>String functions</h2>
+<script>
+var txt = prompt("Enter a string");
+document.write("Original string is:"+txt+"<br>");
+document.write(" String length is:"+txt.length+"<br>");
+document.write(" String converted to uppercase:"+txt.toUpperCase()+"<br>");
+document.write(" String converted to lowercase:"+txt.toLowerCase()+"<br>");
+document.write(" Character at index 1:"+txt.charAt(1)+"<br>");
+var s1="ing";
+document.write("Add ing with our string="+txt.concat(s1)+"<br>");
+var s3="javascript from javatpoint indexof";
+var n=s3.lastIndexOf("indexof");
+document.write(s3+"<br>");
+document.write(" The last index position of (indexof) ="+n+"<br>");
+document.write(" Sliced(0 to 2) string is:"+txt.slice(0,2)+"<br>");
+document.write("Removed white space:"+txt.trim()+"<br>");
+var str="This is JavaTpoint website";
+document.write("Original string="+str+"<br>")
+document.write("The splited string is="+str.split(" "));
+</script>
+<h2>Math functions</h2>
+<script>
+var num=parseFloat(prompt("Enter a number:"));
+document.write("The square root of number:"+Math.round((Math.sqrt(num)))+"<br>");
+document.write("The square root of number in floor value:"+Math.floor((Math.sqrt(num)))+"<br>");
+document.write("The square root of number in ceil:"+Math.ceil((Math.sqrt(num)))+"<br>");
+document.write("The absolute value of -5="+(Math.abs(-5))+"<br>");
+document.write("5 to the power of 2="+ (Math.pow(5,2))+"<br>");
+document.write("The number between 0 t0 1 ="+(Math.random())+"<br>");
+document.write(`Max value in (3, 4, 6): ${Math.max(3, 4, 6)}<br>`);
+document.write(`Min value in (3, 4, 6): ${Math.min(3, 4, 6)}<br>`);
+
+</script>
+</body>
+</html>

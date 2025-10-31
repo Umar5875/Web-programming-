@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #6E665E;
+        }
+        .calendar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .month {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            width: 260px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .month h3 {
+            margin-top: 0;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Generate Calendar for a Year</h2>
+    <label for="yearInput">Enter Year:</label>
+    <input type="number" id="yearInput" placeholder="Enter year">
+    <button onclick="generateCalendar()">Generate Calendar</button>
+
+    <div id="calendar" class="calendar"></div>
+
+    <script>
+        function generateCalendar() {
+            const year = parseInt(document.getElementById("yearInput").value);
+            if (!year || isNaN(year) || year < 1000 || year > 9999) {
+                alert("Please enter a valid year between 1000 and 9999!");
+                return;
+            }
+
+            const calendarDiv = document.getElementById("calendar");
+            calendarDiv.innerHTML = "";
+
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            for (let month = 0; month < 12; month++) {
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                let html = `<div class="month">
+                                <h3>${months[month]} ${year}</h3>
+                                <table>
+                                    <tr>
+                                        <th>Sun</th><th>Mon</th><th>Tue</th>
+                                        <th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+                                    </tr>`;
+                let day = 1;
+
+                for (let i = 0; i < 6; i++) {
+                    html += "<tr>";
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < firstDay) html += "<td></td>";
+                        else if (day <= daysInMonth) html += `<td>${day++}</td>`;
+                        else html += "<td></td>";
+                    }
+                    html += "</tr>";
+                    if (day > daysInMonth) break;
+                }
+
+                html += "</table></div>";
+                calendarDiv.innerHTML += html;
+            }
+        }
+    </script>
+</body>
+</html>
+

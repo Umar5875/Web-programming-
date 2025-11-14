@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>mouseover in js</title>
+</head>
+<body>
+<center>
+<h2  id="h" style="padding-top: 60px;"> i lost!!!...  </h2>
+<image id="i" src="/home/user/umarhtml/download.jpeg" width="600px" height="500px" style="padding-top: 50px;" 
+onmouseover="change()"onmouseout="change1()"">
+<center>
+
+<script>
+function change(){
+document.getElementById("h").innerHTML = "yes! your are a fool";
+document.getElementById("i").src = "/home/user/umarhtml/922053-sjzztwibiu-1504463235.jpg";
+}
+
+function change1(){
+document.getElementById("h").innerHTML = "i lost!!!....";
+document.getElementById("i").src = "/home/user/umarhtml/download.jpeg";
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>onclick in js</title>
+</head>
+<body>
+<center>
+<h2 style="padding-top: 50px;">Click the button to change the <br>background color of this page</h2>
+<button type="button" onclick="colorchange();">Click Here</button>
+</center>
+
+<script>
+let color = ["violet","plum","rose","indigo","aqua","blue", "red", "yellow", "green", "pink", "skyblue","black","orange"];
+let index = 0;
+
+function colorchange() {
+document.body.style.backgroundColor = color[index];
+index = (index + 1) % color.length; 
+}
+</script>
+</body>
+</html>
+
